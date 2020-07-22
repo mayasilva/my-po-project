@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PoModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
+import { TarefasTableComponent } from './tarefas-table/tarefas-table.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TarefasTableComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,8 @@ import { PoMenuItem } from '@po-ui/ng-components';
 export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) }
+    { label: 'Home', link: '/' },
+    { label: 'Tarefas', link: '/tarefas' }
   ];
-
-  private onClick() {
-    alert('Clicked in menu item')
-  }
 
 }
