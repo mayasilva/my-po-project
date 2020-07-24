@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PoModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { TarefasTableComponent } from './tarefas-table/tarefas-table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
