@@ -15,5 +15,9 @@ export class TarefasService {
   getTarefas() {
     return this.http.get(this.url);
   }
+
+  postTarefa(tarefa) {
+    return this.http.post(this.url,tarefa)
+  }
 }
 
