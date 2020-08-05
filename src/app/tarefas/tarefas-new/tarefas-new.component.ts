@@ -11,10 +11,12 @@ import { TarefasService } from '../tarefas.service';
 export class TarefasNewComponent implements OnInit {
 
   tarefa = {concluido: false};
+
+  
   fields: Array<PoDynamicFormField> = [
     {
       property: 'descricao',
-      label: 'Descrição',
+      label: 'DescriÃ§Ã£o',
       required: true,
       minLength: 4,
       maxLength: 50,

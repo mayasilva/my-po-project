@@ -19,5 +19,9 @@ export class TarefasService {
   postTarefa(tarefa) {
     return this.http.post(this.url,tarefa)
   }
+
+  deleteTarefa(id: Number){
+    return this.http.delete(this.url+'/'+id)
+  }
 }
 

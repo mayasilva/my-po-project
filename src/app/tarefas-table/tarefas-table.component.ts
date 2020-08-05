@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PoTableColumn } from '@po-ui/ng-components';
+import { PoTableColumn, PoTableAction } from '@po-ui/ng-components';
 import { TarefasService } from '../tarefas/tarefas.service';
 
 @Component({
@@ -10,7 +10,12 @@ import { TarefasService } from '../tarefas/tarefas.service';
 export class TarefasTableComponent implements OnInit {
   columns: Array<PoTableColumn>;
   items: Array<any>;
-  
+  actions: Array<PoTableAction> = [{
+    label:"Excluir", 
+    action: ({id}) => this.tarefasService 
+                          .deleteTarefa(id)
+                          .subscribe(() => this.showTarefas())}];
+
   constructor(private tarefasService: TarefasService) { 
     this.columns=[ { "property": "id" },
     { "property": "descricao" },
