@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PoTableColumn, PoTableAction } from '@po-ui/ng-components';
 import { TarefasService } from '../tarefas/tarefas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarefas-table',
@@ -16,7 +17,10 @@ export class TarefasTableComponent implements OnInit {
                           .deleteTarefa(id)
                           .subscribe(() => this.showTarefas())}];
 
-  constructor(private tarefasService: TarefasService) { 
+  constructor(
+    private tarefasService: TarefasService,
+    private router: Router
+  ) { 
     this.columns=[ { "property": "id" },
     { "property": "descricao" },
     { "property": "data" ,type: "date" },
@@ -31,7 +35,12 @@ export class TarefasTableComponent implements OnInit {
       .subscribe((data: Array<any>) => this.items = data );
   }
 
+  onClickIncluir(){
+    this.router.navigate(['/tarefas/new']);   
+  }
+
   ngOnInit(): void {
   }
+
 
 }
