@@ -11,11 +11,17 @@ import { Router } from '@angular/router';
 export class TarefasTableComponent implements OnInit {
   columns: Array<PoTableColumn>;
   items: Array<any>;
-  actions: Array<PoTableAction> = [{
+  actions: Array<PoTableAction> = 
+  [{
     label:"Excluir", 
     action: ({id}) => this.tarefasService 
                           .deleteTarefa(id)
-                          .subscribe(() => this.showTarefas())}];
+                          .subscribe(() => this.showTarefas())
+  },
+  { 
+    label:"Alterar",
+    action: ({id}) => this.router.navigate([`/tarefas/${id}/update`])
+  }];
 
   constructor(
     private tarefasService: TarefasService,

@@ -4,3 +4,19 @@
     [p-value]="tarefa"> 
 </po-dynamic-form>
 
+<div class="po-row">
+    <po-button
+      class="po-md-3"
+      p-label="Salvar"
+      [p-disabled]="dynamicForm?.form.invalid"
+      (p-click)="onClickSave()"
+    >
+    </po-button>
+
+    <po-button
+      class="po-md-3"
+      p-label="Cancelar"
+      (p-click)="onClickCancel()"
+    >
+    </po-button>
+  </div>

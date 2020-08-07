@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PoDynamicFormField } from '@po-ui/ng-components';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TarefasService } from '../tarefas.service';
 
@@ -61,6 +61,7 @@ export class TarefasUpdateComponent implements OnInit {
     }]
 
   constructor(private route: ActivatedRoute,
+    private router: Router,
     private tarefaService: TarefasService
     ) { }
 
@@ -69,6 +70,16 @@ export class TarefasUpdateComponent implements OnInit {
     this.tarefaService.getTarefa(tarefaId)
     .subscribe( tarefa => this.tarefa = tarefa);
     
+  }
+
+  onClickCancel() {
+    this.router.navigate(['/']);
+  }
+
+  onClickSave(){
+    this.tarefaService
+      .putTarefa(this.tarefa)
+      .subscribe(() => this.router.navigate(['/tarefas']))
   }
 
 }
