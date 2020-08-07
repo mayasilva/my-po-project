@@ -16,6 +16,10 @@ export class TarefasService {
     return this.http.get(this.url);
   }
 
+  getTarefa(id: Number) {
+    return this.http.get(this.url+'/'+id);
+  }
+
   postTarefa(tarefa) {
     return this.http.post(this.url,tarefa)
   }

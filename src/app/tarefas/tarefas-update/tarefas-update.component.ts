@@ -1,28 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { PoDynamicFormField } from '@po-ui/ng-components';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { TarefasService } from '../tarefas.service';
 
 @Component({
-  selector: 'app-tarefas-new',
-  templateUrl: './tarefas-new.component.html',
-  styleUrls: ['./tarefas-new.component.css']
+  selector: 'app-tarefas-update',
+  templateUrl: './tarefas-update.component.html',
+  styleUrls: ['./tarefas-update.component.css']
 })
-export class TarefasNewComponent implements OnInit {
+export class TarefasUpdateComponent implements OnInit {
+  tarefa; 
 
-  tarefa = {concluido: false};
-
-  
   fields: Array<PoDynamicFormField> = [
     {
+      property: 'id',
+      label: 'Id',
+      required: true,
+      gridColumns: 3,
+      gridSmColumns: 6,
+      order: 1,
+      disabled: true
+    },
+    {
       property: 'descricao',
-      label: 'Descrição',
+      label: 'DescriÃ§Ã£o',
       required: true,
       minLength: 4,
       maxLength: 50,
       gridColumns: 6,
       gridSmColumns: 12,
-      order: 1
+      order: 1  
     },
     {
       property: 'data',
@@ -50,30 +58,17 @@ export class TarefasNewComponent implements OnInit {
       property: 'concluido',
       label: 'Concluido',
       type: 'boolean',
+    }]
 
-    },]  
-
-  constructor(
-    private router: Router,
+  constructor(private route: ActivatedRoute,
     private tarefaService: TarefasService
-  ) { }
-  
+    ) { }
 
   ngOnInit(): void {
-  }
-
-  onClickCancel() {
-    this.router.navigate(['/']);
-  }
-
-  onClickSave(){
-    this.tarefaService
-      .postTarefa(this.tarefa)
-      .subscribe(()=>{
-        alert("Salvou!");
-        this.router.navigate(['/tarefas'])
-      })
-
+    const tarefaId = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.tarefaService.getTarefa(tarefaId)
+    .subscribe( tarefa => this.tarefa = tarefa);
+    
   }
 
 }

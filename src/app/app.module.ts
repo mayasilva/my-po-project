@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
 import { TarefasTableComponent } from './tarefas-table/tarefas-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TarefasNewComponent } from './tarefas/tarefas-new/tarefas-new.component';
+import { TarefasUpdateComponent } from './tarefas/tarefas-update/tarefas-update.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TarefasTableComponent,
-    TarefasNewComponent
+    TarefasNewComponent,
+    TarefasUpdateComponent
   ],
   imports: [
     BrowserModule,
