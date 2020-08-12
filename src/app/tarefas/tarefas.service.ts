@@ -10,8 +10,10 @@ export class TarefasService {
 
   url = 'http://localhost:3000/tarefas';
 
-  getTarefas() {
-    return this.http.get(this.url);
+  getTarefas(filtro?: string) {
+    const filtrourl = filtro == null ? "" : "?descricao_like="+filtro
+
+    return this.http.get(this.url+filtrourl);
   }
 
   getTarefa(id: Number) {
@@ -29,5 +31,6 @@ export class TarefasService {
   deleteTarefa(id: Number){
     return this.http.delete(this.url+'/'+id)
   }
+
 }
 

@@ -36,14 +36,23 @@ export class TarefasTableComponent implements OnInit {
     this.showTarefas()
   }
 
-  showTarefas() {
-    this.tarefasService.getTarefas()
+  showTarefas(filter?) {
+    this.tarefasService.getTarefas(filter)
       .subscribe((data: Array<any>) => this.items = data );
   }
 
   onClickIncluir(){
     this.router.navigate(['/tarefas/new']);   
   }
+
+  onQuickSearch(filter) {
+    this.showTarefas(filter)
+  }
+
+  onChangeDisclaimers(disclaimers) {
+    this.showTarefas()
+  }
+
 
   ngOnInit(): void {
   }

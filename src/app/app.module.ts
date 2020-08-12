@@ -9,6 +9,7 @@ import { TarefasTableComponent } from './tarefas-table/tarefas-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TarefasNewComponent } from './tarefas/tarefas-new/tarefas-new.component';
 import { TarefasUpdateComponent } from './tarefas/tarefas-update/tarefas-update.component';
+import { PoPageDynamicSearchModule } from '@po-ui/ng-templates';
 
 
 @NgModule({
@@ -17,12 +18,13 @@ import { TarefasUpdateComponent } from './tarefas/tarefas-update/tarefas-update.
     TarefasTableComponent,
     TarefasNewComponent,
     TarefasUpdateComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PoModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    PoPageDynamicSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,20 @@
-<po-table 
-    [p-columns]="columns"
-    [p-items]="items"
-    [p-actions]="actions"
-    ></po-table>
+<po-page-dynamic-search  
+    p-title="Tarefas"
+    (p-change-disclaimers)="onChangeDisclaimers($event)"
+    (p-quick-search)="onQuickSearch($event)"> 
+    <po-table 
+        [p-columns]="columns"
+        [p-items]="items"
+        [p-actions]="actions"
+        ></po-table>
+        <div class="po-row">
+            <po-button
+                class="po-md-3"
+                p-label="Incluir"
+                (p-click)="onClickIncluir()"
+            >
+            </po-button>
+        </div>
+</po-page-dynamic-search>
 
-<div class="po-row">
-    <po-button
-        class="po-md-3"
-        p-label="Incluir"
-        (p-click)="onClickIncluir()"
-    >
-    </po-button>
-</div>
+
